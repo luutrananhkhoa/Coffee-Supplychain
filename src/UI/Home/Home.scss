@@ -1,0 +1,25 @@
+.dashboard{
+    padding: 4rem;
+    width: 100%;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.25rem;
+}
+.buttonLine{
+    width: 12%;
+}
+
+.dashboard_card{
+    width: 100%;
+    display: flex;
+
+    .dashboard_card_item{
+        width: calc(100%/3 - 2rem/3);
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+}

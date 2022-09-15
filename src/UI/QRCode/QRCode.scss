@@ -1,0 +1,7 @@
+@use '../../Sass/_global' as _global;
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

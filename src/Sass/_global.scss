@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+}
+
+.content{
+    padding: 4rem;
+    width: 100%;
+}
+
+.buttonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonLine{
+    //width: 15%;
+}

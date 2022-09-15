@@ -1,0 +1,99 @@
+@use '../../Sass/_variables' as _variables; 
+@use '../../Sass/_typography' as _typography; 
+@use '../../Sass/_global' as _global; 
+
+.rightSide{
+    width: 50%;
+    padding: 4rem;
+    
+    background-color: _variables.$lightbrown-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .imgContainerRight{
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        position: relative;
+        border-radius: 50%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            //width: 200px;
+            width: 70%; 
+            position: absolute;
+            padding: 1rem;
+            left: 20%;
+        }
+    }
+    //border-radius: 0 8% 8% 0;
+}
+
+.leftSide{
+    width: 50%;
+    padding: 4rem 6rem;
+    background-color: _variables.$background-color;
+
+    .imgContainer{
+
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 0 2.5rem 0;
+
+        img{
+            width: 12rem;
+        }
+    
+    }
+
+    .textContainer{
+        margin: 1.5rem 0 0 0;
+        padding: 0 4rem;
+        //text-align:center;
+
+        h1{
+            font-size: 3rem;
+            font-weight: 400;
+            color: _variables.$brown-color;
+        }
+    }
+    
+    .inputContainer{
+        margin: 3rem 0 2rem 0;
+        padding: 0 4rem;
+    
+        .inputItem{
+            margin: 1.5rem 0;
+    
+            label{
+                font-size:18px;
+            }
+        }
+    }
+
+    .buttonItem{
+        margin: 1rem 0 0 0;
+        padding: 0 4rem;
+        width: 100%;
+    }
+    .textCenter{
+        display: flex;
+        justify-content: center;
+
+        margin: 1.5rem 0 0 0;
+
+        .textLink{
+            text-decoration:none;
+            color: _variables.$green-color;
+
+        }
+    }
+}
+
+
+

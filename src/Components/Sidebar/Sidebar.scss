@@ -1,0 +1,82 @@
+@use '../../Sass/_variables' as _variables; 
+
+.sidebar{
+    width: 40vh;
+    height: 100vh;
+    padding: 2rem;
+    position: relative;
+
+    background-color: _variables.$background-color;
+
+    .imgSidebar{
+        img{
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+    .listSidebar{
+        margin: 2rem 0 0 0;
+        li{
+            display: flex;
+            align-items: center;
+            padding: 1rem 1rem;
+            margin: 0.5rem 0;
+            list-style-type: none;
+            font-size: 1rem;
+
+            img{
+                margin: 0 0.5rem 0 0;
+            }
+        }
+
+        li:hover{
+            border-radius: 15px;
+
+            background-color: _variables.$brownhover-color;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .profileSidebar{
+        position: absolute;
+        width: 100%;
+        height: 8vh;
+        bottom: 0;
+        left:0;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        background-color: _variables.$lightbrown-color;
+
+        .profileText{
+            padding: 1rem 2rem;
+            p{
+                font-size:16px;
+            }
+        }
+        
+        .logOutView{
+            padding: 1rem;
+           
+            cursor: pointer;
+        }
+        .logOutText{
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+.active{
+    border-radius: 15px;
+
+    background-color: _variables.$brownhover-color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.linkTag{
+    text-decoration: none;
+    color: #000;
+}

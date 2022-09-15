@@ -1,0 +1,27 @@
+@use '../../Sass/_variables' as _variables; 
+
+.card{
+    width: 100%;
+    background-color: _variables.$brown-color; 
+    padding: 1.25rem;
+    border-radius: 10px;
+    .card_title {
+        h1{
+            font-size:22px;
+            font-weight:400;
+            color:white;
+        }
+    }
+    .card_content{
+        display: flex;
+        justify-content:space-between;
+
+        .card_quantity{
+            h2{
+                font-size: 3rem;
+                font-weight:400;
+                color:white;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@use '../../Sass/_variables' as _variables; 
+.error_container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: _variables.$background-color;
+    .error_content{
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+    }
+    h1{
+        font-size:40px;
+        font-weight: 500;
+        color: _variables.$brown-color;
+    }
+}
