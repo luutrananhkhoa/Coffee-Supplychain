@@ -28,6 +28,9 @@ const Sidebar = () => {
 
                 <div className="profileSidebar">
                     <div className="profileText"><p>Profile</p></div>
+                    <div className="logOutView">
+                        <Link to='/login' className="logOutText">Log out</Link>
+                    </div>
                 </div>
             </div>
         </>

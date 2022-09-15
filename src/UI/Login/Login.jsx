@@ -5,6 +5,7 @@ import bigLogo from "../../Assets/Images/LogoNoTitle.png"
 import Input from './../../Components/Input/Input';
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
+import ButtonLogin from "../../Components/ButtonLogin/ButtonLogin";
 
 const Login = () => {
     return ( 
@@ -32,7 +33,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="buttonItem">
-                        <Button title="Log In"/>
+                        <Link to="/"><ButtonLogin title="Log In"/></Link>
                     </div>
                     <div className="textCenter">
                         <h6><Link to="/" className="textLink">Forgot password</Link></h6>

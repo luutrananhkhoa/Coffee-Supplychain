@@ -4,10 +4,11 @@ import { Context } from '../../Context/Context';
 import closeIcon from '../../Assets/Images/Icon/Close.svg'
 import Button from '../Button/Button';
 const ModalAddBatch = () => {
-  const { modaAddBatchIsShown, setModalAddBatchIsShown} = useContext(Context)
+  const { modaAddBatchIsShown, setModalAddBatchIsShown,  modaAddUserIsShown, setModalAddUserIsShown} = useContext(Context)
 
   const hideModalHandler = () => {
     setModalAddBatchIsShown(false)
+    setModalAddUserIsShown(false)
 }
   return (
     <div className="backdrop">
