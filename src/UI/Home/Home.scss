@@ -1,6 +1,10 @@
 .dashboard{
-    padding: 4rem;
+    padding: 2rem 4rem;
     width: 100%;
+
+    h2{
+        margin: 0.5rem 0;
+    }
 }
 
 .buttonContainer{
@@ -21,5 +25,23 @@
         width: calc(100%/3 - 2rem/3);
         padding: 0.5rem;
         margin: 0.5rem;
+    }
+}
+.tableContainer{
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    tr{
+        width: 100%;
+    }
+    th{
+        width:calc(100%/6);
+        padding: 1rem;
+        font-size: 18px;
+    }
+    td{
+        text-align: center;
+        padding: 0.5rem 0;
     }
 }
