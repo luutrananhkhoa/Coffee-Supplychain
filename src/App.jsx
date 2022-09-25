@@ -6,6 +6,7 @@ import Login from './UI/Login/Login';
 import Error from './UI/Error/Error';
 import QRCode from './UI/QRCode/QRCode';
 import User from './UI/User/User';
+import Product from './UI/Product/Product';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/qrcode" element={<QRCode/>}/>
           <Route path="/user" element={<User/>}/>
+          <Route path="/product" element={<Product/>}/>
           <Route path="*" element={<Error />}/>
         </Routes>
     </div>
