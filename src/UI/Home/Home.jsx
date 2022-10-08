@@ -17,6 +17,8 @@ const Home = () => {
     const { modaAddBatchIsShown, setModalAddBatchIsShown} = useContext(Context)
     console.log(modaAddBatchIsShown)
 
+    const [showModalAddPlant, setShowModalAddPlant] = useState(false)
+
     const showModalHandler = () => {
         setModalAddBatchIsShown(true)
     }
@@ -27,12 +29,12 @@ const Home = () => {
 
     return ( 
         <div className="container">
-            {modaAddBatchIsShown && <ModalAddBatch />}
+            {showModalAddPlant && <ModalAddBatch setShowModalAddPlant={setShowModalAddPlant}/>}
             <Sidebar />
             <div className="dashboard">
                 <h1>Dashboard</h1>
                 <div className="buttonContainer">
-                    <div className="buttonLine"><Button title="Add Batch" /></div>
+                    <div className="buttonLineAddBatch"><button type="submit"  onClick={()=>{setShowModalAddPlant(true)}}>Add Plant</button></div>
                 </div>
                 <div className="dashboard_card">
                     <div className="dashboard_card_item"><Card title="USERS" quantity="3" img={user_icon} /></div>
