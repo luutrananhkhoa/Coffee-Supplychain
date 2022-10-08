@@ -3,13 +3,29 @@ import './ModalAddUser.scss'
 import { Context } from '../../Context/Context';
 import closeIcon from '../../Assets/Images/Icon/Close.svg'
 import Button from '../Button/Button';
+import {getContract as getContractFarmer} from "../../Contract/farmerContract"
 
 const ModalAddUser = () => {
-    const { modaAddUserIsShown, setModalAddUserIsShown,  modaAddBatchIsShown, setModalAddBatchIsShown} = useContext(Context)
+    const { modaAddUserIsShown, 
+        setModalAddUserIsShown, 
+        modaAddBatchIsShown, 
+        setModalAddBatchIsShown,
+        address, 
+        setAddress} = useContext(Context)
 
     const hideModalHandler = () => {
         setModalAddUserIsShown(false)
         setModalAddBatchIsShown(false)
+    }
+
+    const onHandleAddUser =  () =>{
+        getContractFarmer().then((contractFarmer)=>{
+            contractFarmer.methods.addInspector(0).send({
+                from: address
+            }).then((res)=>{console.log(res);})
+            .catch((err)=>{console.log(err);})
+            
+        }).catch((err)=>{console.log(err);})
     }
   return (
     <div className="backdrop">
@@ -30,7 +46,7 @@ const ModalAddUser = () => {
                     </div>
                 </div>
                 <div className="buttonContainerModal">
-                    <div className="buttonLine"><Button title="Create" /></div>
+                    <div className="buttonLine"><button type="submit" onClick={onHandleAddUser}>Create</button></div>
                 </div>
             </div>
         </div>

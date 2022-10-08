@@ -21,9 +21,14 @@ const Product = () => {
     <div className="container">
         <Sidebar />
         <div className="content">
-                <h1>Product</h1>
+          <h1>Product</h1>
+          <div class="commonProductContainer">
+              <div class="commonProductItem">
+                <h6>Name</h6>
 
-            </div>
+              </div>
+          </div>
+        </div>
     </div>
   )
 }
