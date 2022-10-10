@@ -6,9 +6,12 @@ import Button from '../Button/Button';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import {getContract as getContractFarmer} from "../../Contract/farmerContract"
+import { useSelector } from 'react-redux';
+
 const ModalAddBatch = (props) => {
   const { modaAddBatchIsShown, setModalAddBatchIsShown,  modaAddUserIsShown, setModalAddUserIsShown,address} = useContext(Context)
-  
+  const login = useSelector((state) => state.login);
+  console.log('login', login.address)
   const batchNameInputRef = useRef();
 
   const {setShowModalAddPlant} = props
@@ -49,7 +52,7 @@ const ModalAddBatch = (props) => {
                 parseInt(values.production),
             
             ).send({
-                from: address
+                from: login.address
             }).then((res)=>{console.log(res);}).then(()=>{setShowModalAddPlant(false)})
             .catch((err)=>{console.log(err);})
             
