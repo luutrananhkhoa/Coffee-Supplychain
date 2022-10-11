@@ -1,22 +1,63 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useReducer } from "react";
+import Cookies from "js-cookie";
 
-export const Context = createContext()
+export const Context = createContext();
 
-const ContextProvider = ({children}) => {
-  const [modaAddBatchIsShown, setModalAddBatchIsShown] = useState(false)
-  const [modaAddUserIsShown, setModalAddUserIsShown] = useState(false)
-  const [address, setAddress] = useState()
+const initialLogin = {
+  address: undefined,
+  id: undefined,
+  accountType: undefined,
+};
+const loginReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN":
+      const time = new Date(new Date().getTime() + 86400000 * 7);
+      Cookies.set("address", action.address, {
+        path: "/",
+        expires: time,
+        secure: true,
+        sameSite: true,
+      });
+      Cookies.set("accountType", action.accountType, {
+        path: "/",
+        expires: time,
+        secure: true,
+        sameSite: true,
+      });
+      Cookies.set("id", action.inspectorId, {
+        path: "/",
+        expires: time,
+        secure: true,
+        sameSite: true,
+      });
+      return {
+        ...state,
+        address: action.address,
+        accountType: action.accountType,
+        id: action.id,
+      };
+    default:
+      return initialLogin;
+  }
+};
 
-  const data ={
+const ContextProvider = ({ children }) => {
+  const [modaAddBatchIsShown, setModalAddBatchIsShown] = useState(false);
+  const [modaAddUserIsShown, setModalAddUserIsShown] = useState(false);
+  const [address, setAddress] = useState();
+  const [loginState, dispatchLogin] = useReducer(loginReducer, initialLogin);
+  const data = {
     modaAddBatchIsShown,
     setModalAddBatchIsShown,
-    modaAddUserIsShown, 
+    modaAddUserIsShown,
     setModalAddUserIsShown,
-    address, 
-    setAddress
-  }
+    address,
+    setAddress,
+    loginState,
+    dispatchLogin,
+  };
+  console.log(loginState);
+  return <Context.Provider value={data}>{children}</Context.Provider>;
+};
 
-    return <Context.Provider value={data}>{children}</Context.Provider>
-}
-
-export default ContextProvider
+export default ContextProvider;

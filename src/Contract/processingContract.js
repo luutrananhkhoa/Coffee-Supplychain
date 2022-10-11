@@ -153,6 +153,19 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
         name: "processingDatabaseContractAddress",
         type: "address",
       },
@@ -178,19 +191,6 @@ export const ABI = [
     ],
     name: "OwnershipTransferred",
     type: "event",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
-    ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
   },
   {
     inputs: [],
@@ -238,6 +238,41 @@ export const ABI = [
           },
         ],
         internalType: "struct FolWarehouse[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getListInspector",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "uint256",
+            name: "inspectorId",
+            type: "uint256",
+          },
+          {
+            internalType: "address",
+            name: "inspectorAddress",
+            type: "address",
+          },
+          {
+            internalType: "enum AccountType",
+            name: "accountType",
+            type: "uint8",
+          },
+          {
+            internalType: "uint256",
+            name: "category",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct Inspector[]",
         name: "",
         type: "tuple[]",
       },
@@ -357,6 +392,41 @@ export const ABI = [
   },
   {
     inputs: [],
+    name: "login",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "uint256",
+            name: "inspectorId",
+            type: "uint256",
+          },
+          {
+            internalType: "address",
+            name: "inspectorAddress",
+            type: "address",
+          },
+          {
+            internalType: "enum AccountType",
+            name: "accountType",
+            type: "uint8",
+          },
+          {
+            internalType: "uint256",
+            name: "category",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct Inspector",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "owner",
     outputs: [
       {
@@ -382,7 +452,7 @@ export const ABI = [
     type: "function",
   },
 ];
-export const ADDRESS = "0xA44745fB2af9837FbF40C8001c8Fa387DEb6CbFa";
+export const ADDRESS = "0x2aD37b9F7810Ca0a111a351C9DCCC22A86323773";
 
 export async function getContract() {
   const provider = await detectEthereumProvider();

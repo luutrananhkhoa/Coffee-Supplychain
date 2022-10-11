@@ -9,25 +9,41 @@ import { Context } from "../../Context/Context";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { login } from "@/Redux/actions/loginAct";
 import Web3 from "web3";
+import { getContract as getContractFarmer } from "@contract/farmerContract";
+import farmerInspectorLogin from "@hook/farmerInspectorLogin";
 
 const User = () => {
-  const { modaAddUserIsShown, setModalAddUserIsShown, address, setAddress } =
+  const { modaAddUserIsShown, setModalAddUserIsShown, dispatchLogin } =
     useContext(Context);
-  const dispatch = useDispatch();
   const [showModalAddFarmer, setShowModalAddFarmer] = useState(false);
 
   const onHandleConnectMetamask = async () => {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
-    let addressTemp = accounts[0];
-
-    setAddress(addressTemp);
-    dispatch(login({ address: address }));
-    console.log(address);
+    const address = accounts[0];
+    const contractFarmer = await getContractFarmer().catch((error) => {
+      console.error(error);
+    });
+    await farmerInspectorLogin(dispatchLogin, contractFarmer, address).catch(
+      (error) => console.error(error)
+    );
   };
 
-  const addInspector = () => {};
+  const addInspector = async () => {
+    const contractFarmer = await getContractFarmer().catch((error) => {
+      console.error(error);
+    });
+    contractFarmer.methods
+      .addInspector(1)
+      .send({ from: address })
+      .then((success) => {
+        console.log(success);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="container">
       {modaAddUserIsShown && <ModalAddUser />}

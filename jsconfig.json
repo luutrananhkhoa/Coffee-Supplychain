@@ -28,6 +28,7 @@
       "@locale/*": ["./src/Locale/*"],
       "@helper/*": ["./src/Helper/*"],
       "@contract/*": ["./src/Contract/*"],
+      "@hook/*": ["./src/Hook/*"],
       "@/*": ["./src/*"]
     }
   },
