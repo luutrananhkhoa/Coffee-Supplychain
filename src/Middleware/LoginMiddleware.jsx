@@ -24,11 +24,15 @@ function LoginMiddleware() {
           const address = success[0];
 
           if (address) {
+            dispatchLogin({ type: "CONNECT", address: address });
             const contractFarmer = await getContractFarmer().catch((error) => {
               console.error(error);
             });
-            await farmerInspectorLogin(dispatchLogin, contractFarmer, address)
-              .catch((error) => console.error(error));
+            await farmerInspectorLogin(
+              dispatchLogin,
+              contractFarmer,
+              address
+            ).catch((error) => console.error(error));
           }
         })
         .catch((error) => {

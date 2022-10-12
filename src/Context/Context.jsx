@@ -10,6 +10,9 @@ const initialLogin = {
 };
 const loginReducer = (state, action) => {
   switch (action.type) {
+    case "CONNECT": {
+      return { ...state, address: action.address };
+    }
     case "LOGIN":
       const time = new Date(new Date().getTime() + 86400000 * 7);
       Cookies.set("address", action.address, {

@@ -13,8 +13,12 @@ import { getContract as getContractFarmer } from "@contract/farmerContract";
 import farmerInspectorLogin from "@hook/farmerInspectorLogin";
 
 const User = () => {
-  const { modaAddUserIsShown, setModalAddUserIsShown, dispatchLogin } =
-    useContext(Context);
+  const {
+    modaAddUserIsShown,
+    setModalAddUserIsShown,
+    dispatchLogin,
+    loginState,
+  } = useContext(Context);
   const [showModalAddFarmer, setShowModalAddFarmer] = useState(false);
 
   const onHandleConnectMetamask = async () => {
@@ -22,6 +26,8 @@ const User = () => {
       method: "eth_requestAccounts",
     });
     const address = accounts[0];
+    console.log(address);
+    dispatchLogin({ type: "CONNECT", address: address });
     const contractFarmer = await getContractFarmer().catch((error) => {
       console.error(error);
     });
@@ -36,7 +42,7 @@ const User = () => {
     });
     contractFarmer.methods
       .addInspector(1)
-      .send({ from: address })
+      .send({ from: loginState.address })
       .then((success) => {
         console.log(success);
       })
