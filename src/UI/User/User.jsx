@@ -11,6 +11,7 @@ import { login } from "@/Redux/actions/loginAct";
 import Web3 from "web3";
 import { getContract as getContractFarmer } from "@contract/farmerContract";
 import farmerInspectorLogin from "@hook/farmerInspectorLogin";
+import SelectRole from "@/Components/SelectRole/SelectRole";
 
 const User = () => {
   const {
@@ -20,7 +21,7 @@ const User = () => {
     loginState,
   } = useContext(Context);
   const [showModalAddFarmer, setShowModalAddFarmer] = useState(false);
-
+  const [showModalChooseRole, setShowModalChooseRole] = useState(false);
   const onHandleConnectMetamask = async () => {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
@@ -50,27 +51,36 @@ const User = () => {
         console.error(error);
       });
   };
+
   return (
     <div className="container">
       {modaAddUserIsShown && <ModalAddUser />}
       {showModalAddFarmer && (
         <ModalAddFarmer setShowModalAddFarmer={setShowModalAddFarmer} />
       )}
+      {showModalChooseRole &&(<SelectRole setShowModalChooseRole={setShowModalChooseRole}/>)}
       <Sidebar />
       <div className="content">
         <h1>Users</h1>
         <div className="buttonContainer">
           <div className="buttonLine">
-            <Button title="Create" />
+            <button type="button" onClick={() => {
+                setShowModalChooseRole(true);
+              }}>Choose Role</button>
           </div>
         </div>
-        <div className="buttonContainer">
+        {/* <div className="buttonContainer">
+          <div className="buttonLine">
+            <Button title="Create" />
+          </div>
+        </div> */}
+        {/* <div className="buttonContainer">
           <div className="buttonLine">
             <button type="submit" onClick={onHandleConnectMetamask}>
               Connect Metamask
             </button>
           </div>
-        </div>
+        </div> */}
         <div className="buttonContainer">
           <div className="buttonLine">
             <button
