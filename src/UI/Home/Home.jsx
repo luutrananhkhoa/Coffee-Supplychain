@@ -12,6 +12,10 @@ import qrcode_img from '../../Assets/Images/Icon/Qr_code_img.svg';
 import iconComplete from '../../Assets/Images/Icon/icon_complete.svg';
 import iconIncomplete from '../../Assets/Images/Icon/icon_incomplete.svg';
 import iconWaiting from '../../Assets/Images/Icon/icon_waiting.svg';
+
+import { getContract as getContractFarmer } from "@contract/farmerContract";
+import farmerInspectorLogin from "@hook/farmerInspectorLogin";
+
 const Home = () => {
 
     const { modaAddBatchIsShown, setModalAddBatchIsShown} = useContext(Context)
@@ -71,14 +75,14 @@ const Home = () => {
                                 <td><img src={iconWaiting} alt="" /></td>
                                 <td><img src={iconIncomplete} alt="" /></td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td><img src={qrcode_img} alt="" /></td>
                                 <td><img src={iconComplete} alt="" /></td>
                                 <td><img src={iconComplete} alt="" /></td>
                                 <td><img src={iconComplete} alt="" /></td>
                                 <td><img src={iconWaiting} alt="" /></td>
                                 <td><img src={iconIncomplete} alt="" /></td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
                 </div>

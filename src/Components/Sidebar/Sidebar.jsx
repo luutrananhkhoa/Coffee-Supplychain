@@ -18,7 +18,7 @@ const Sidebar = () => {
             <div className="sidebar">
                 <div className="imgSidebar"><img src={logo} alt="" /></div>
                 <ul className="listSidebar">
-                    <Link to="/" className="linkTag"><li className={`${locationTemp===""?"active":""}`}><img src={iconDashboard} alt="" />Dashboard</li></Link>
+                    <Link to="/home" className="linkTag"><li className={`${locationTemp===""?"active":""}`}><img src={iconDashboard} alt="" />Dashboard</li></Link>
                     <Link to="/product" className="linkTag"><li className={`${locationTemp==="product"?"active":""}`}><img src={iconProduct} alt="" />Product</li></Link>
                     <li><img src={iconNoti} alt="" />Notification</li>
                     <Link to="/qrcode" className="linkTag"><li className={`${locationTemp==="qrcode"?"active":""}`}><img src={iconQrcode} alt="" />QR code</li></Link>

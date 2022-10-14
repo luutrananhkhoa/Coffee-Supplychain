@@ -19,8 +19,8 @@ function App() {
       <Provider store={store}>
         <Routes>
           <Route path="" element={<LoginMiddleware></LoginMiddleware>}>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="/qrcode" element={<QRCode />} />
             <Route path="/user" element={<User />} />
             <Route path="/product" element={<Product />} />
